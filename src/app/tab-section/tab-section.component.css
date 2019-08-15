@@ -1,0 +1,15 @@
+.mat-tab-links {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+ 
+    background: #33C4FF;
+    background: -moz-linear-gradient(top, #33C4FF, #33BEFF);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#33C4FF), to(#33BEFF));
+
+  }
+
+  .mat-tab-links a {
+    text-decoration: none;
+  }
+  
