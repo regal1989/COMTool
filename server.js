@@ -16,9 +16,9 @@ app.use(logger('dev'));
 
 // this is our get method
 // this method fetches all available data in our database
-router.get('/getData', (req, res) => {
+router.get('/getTabs', (req, res) => {
   let rawdata = fs.readFileSync('data.json');
-  let result = JSON.stringify(rawdata);
+  let result = JSON.parse(rawdata);
   res.send(result);
 });
 

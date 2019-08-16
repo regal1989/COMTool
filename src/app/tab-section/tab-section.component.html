@@ -1,7 +1,6 @@
 <nav mat-tab-nav-bar >
   <a mat-tab-link *ngFor="let link of links"
-     (click)="openPage(link)"
-     [active]="activeLink == link"> {{link}} </a>
+     (click)="openPage(link.value)"
+     [active]="activeLink == link"> {{link.title}} </a>
 </nav>
-
 <ng-template ad-page></ng-template>

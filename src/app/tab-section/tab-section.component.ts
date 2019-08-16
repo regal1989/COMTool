@@ -4,7 +4,12 @@ import { CreatePageComponent } from '../create-page/create-page.component';
 import { SearchPageComponent } from '../search-page/search-page.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { ManagePageComponent } from '../manage-page/manage-page.component';
+import { TabsService } from '../tabs.service';
 
+export interface tabrow {
+    title: string,
+    value: string;
+}
 
 @Component({
   selector: 'app-tab-section',
@@ -14,16 +19,24 @@ import { ManagePageComponent } from '../manage-page/manage-page.component';
 })
 export class TabSectionComponent implements OnInit {
   tabBackgroundColor:string;
-  links = ['Home', 'Search', 'Create', 'Manage'];
+  links: tabrow[] = [
+    {"title":"Home","value":"Home"},
+    {"title":"Search","value":"Search"},
+    {"title":"Create","value":"Create"},
+    {"title":"Manage","value":"Manage"}
+  ];
   activeLink = this.links[2];
   background = '';
   @ViewChild(AdDirective) adPage: AdDirective;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+    private tabService: TabsService) {
     this.tabBackgroundColor = 'primary'
    }
 
   ngOnInit() {
+    this.tabService.getTabs()
+      .subscribe((data: tabrow[]) => this.links = data);
     this.loadComponent(CreatePageComponent, 'data');
   }
 

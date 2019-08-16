@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { ManagePageComponent } from './manage-page/manage-page.component'
 import { AdDirective }          from './ad.directive';
+import { TabsService } from './tabs.service';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { AdDirective }          from './ad.directive';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ], 
-  providers: [],
+  providers: [TabsService],
   entryComponents: [ CreatePageComponent, 
     HomePageComponent, SearchPageComponent, ManagePageComponent],
   bootstrap: [AppComponent]
